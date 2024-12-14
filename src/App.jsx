@@ -1,8 +1,14 @@
 import React from 'react'
+import { Route, Routes } from 'react-router'
+import Home from './components/Home'
 
 function App() {
   return (
-    <div className='w-screen h-screen bg-slate-200'>App</div>
+    <div className='w-screen h-screen bg-[#1F1E24] text-white flex py-10'>
+      <Routes>
+        <Route path='/'  element={<Home/>}/>
+      </Routes>
+    </div>
   )
 }
 
