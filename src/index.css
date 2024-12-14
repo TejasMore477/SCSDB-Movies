@@ -4,3 +4,13 @@
 
 /* primary #1F1E24 */
 /* secondary #6556CD */
+
+::-webkit-scrollbar{
+  width: 5px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #6556CD;
+  border-radius: 40px;
+}
