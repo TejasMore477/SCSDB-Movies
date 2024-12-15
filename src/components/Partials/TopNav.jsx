@@ -14,7 +14,6 @@ function TopNav() {
         `/search/multi?query=${query}&include_adult=${adults}&language=en-US&page=1`
       );
       setSerches(data.results);
-      // console.log("the Searches are :", searches);
     } catch (error) {
       console.log("Error :", error);
     }
@@ -25,7 +24,7 @@ function TopNav() {
   }, [query]);
 
   return (
-    <div className="w-full h-[10vh] flex items-center justify-center relative">
+    <div className="w-full flex items-center justify-center relative bg-red-9000 mb-3">
       <i className="text-zinc-400 text-3xl ri-search-eye-line"></i>
 
       <input
@@ -43,12 +42,12 @@ function TopNav() {
         } cursor-pointer text-zinc-400 text-3xl ri-close-fill`}
       ></i>
 
-      <div className="max-h-[40vh] w-[50%] bg-zinc-700 bg-opacity-40 absolute top-[100%] rounded-xl overflow-auto">
+      <div className="max-h-[40vh] w-[50%] bg-zinc-300 bg-opacity-10 backdrop-blur-[3px] absolute top-[100%] rounded-xl overflow-auto z-10">
         {searches.map((search, index) => {
           return (
             <Link
               key={index}
-              className="hover:bg-zinc-700 text-zinc-400 hover:text-zinc-50 rounded-lg flex items-center justify-between w-[100%] py-2 px-5"
+              className=" bg-transparent hover:bg-zinc-700/40 hover:backdrop-blur-[5px]  text-zinc-300 hover:text-zinc-50 rounded-lg flex items-center justify-between w-[100%] py-2 px-5"
             >
               <span>
                 {search.title ||
