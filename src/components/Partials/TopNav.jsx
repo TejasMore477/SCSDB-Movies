@@ -47,7 +47,7 @@ function TopNav() {
           return (
             <Link
               key={index}
-              className=" bg-transparent hover:bg-zinc-700/40 hover:backdrop-blur-[5px]  text-zinc-300 hover:text-zinc-50 rounded-lg flex items-center justify-between w-[100%] py-2 px-5"
+              className="bg-transparent hover:bg-[#6556CD]/20 hover:backdrop-blur-[5px]  text-zinc-300 hover:text-zinc-50 rounded-lg flex items-center justify-between w-[100%] py-2 px-5"
             >
               <span>
                 {search.title ||
