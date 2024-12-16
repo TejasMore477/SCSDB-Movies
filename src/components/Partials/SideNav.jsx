@@ -12,7 +12,7 @@ function SideNav() {
       <nav className="text-lg text-zinc-400 flex flex-col gap-2">
         <h1 className="font-medium mb-2 mt-10 text-white">New Feed</h1>
         
-        <Link className="active:bg-[#4c39ca] hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3">
+        <Link to={"/trendings"} className="active:bg-[#4c39ca] hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3">
           <i className="mr-2 ri-fire-fill"></i>
           Trending
         </Link>

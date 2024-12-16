@@ -33,22 +33,21 @@ function Home() {
     }
   };
 
-  const handleChange = (event) => {
-    setTrendValue(event.target.value);
-  };
-
   useEffect(() => {
     wallPaper.length === 0 && getWallPaper();
     getTrending();
   }, [TrendValue]);
 
-  return wallPaper && trending ? (
+  return wallPaper && trending.length > 0 ? (
     <>
       <SideNav />
-      <div className="w-[80%] h-full overflow-y-auto">
+      <div className="w-[80%] h-full overflow-hidden overflow-y-auto">
         <TopNav />
         <Header data={wallPaper} />
-        <DropDown handleChange={handleChange} title={"Filter"} options={["all", "tv", "movie"]}/>
+        <div className="w-full bg-red-9000 px-4 flex items-center justify-between">
+      <h1 className="text-zinc-400 font-semibold text-2xl">Trending</h1>
+        <DropDown handleChange={(e)=>setTrending(e.target.value)} title={"Filter"} options={["all", "tv", "movie"]} icon={<i class="ri-filter-fill"></i>}/>
+    </div>
         <HorizontalCards data={trending} />
       </div>
     </>

@@ -24,7 +24,7 @@ function TopNav() {
   }, [query]);
 
   return (
-    <div className="w-full flex items-center justify-center relative bg-red-9000 mb-3">
+    <div className="w-full flex items-center justify-center relative">
       <i className="text-zinc-400 text-3xl ri-search-eye-line"></i>
 
       <input
