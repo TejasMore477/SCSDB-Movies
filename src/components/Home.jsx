@@ -48,7 +48,7 @@ function Home() {
       <div className="w-[80%] h-full overflow-y-auto">
         <TopNav />
         <Header data={wallPaper} />
-        <DropDown TrendValue={TrendValue} handleChange={handleChange} />
+        <DropDown handleChange={handleChange} title={"Filter"} options={["all", "tv", "movie"]}/>
         <HorizontalCards data={trending} />
       </div>
     </>
