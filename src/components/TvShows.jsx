@@ -19,7 +19,7 @@ function TvShows() {
     const getTvShows = async () => {
       try {
         const { data } = await axios.get(`/tv/${Catogories}?page=${pageNo}`);
-  console.log(data.results)
+
         if (data.results.length > 0) {
           setTvShows((prev) => [...prev, ...data.results]);
           setpageNo(prev => prev + 1);

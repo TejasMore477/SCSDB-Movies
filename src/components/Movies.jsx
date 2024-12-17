@@ -19,7 +19,7 @@ function Movies() {
     const getMovies = async () => {
       try {
         const { data } = await axios.get(`/movie/${Catogories}?page=${pageNo}`);
-  console.log(data.results)
+
         if (data.results.length > 0) {
           setMovies((prev) => [...prev, ...data.results]);
           setpageNo(prev => prev + 1);

@@ -17,7 +17,6 @@ function Peoples() {
     const getPeoples = async () => {
       try {
         const { data } = await axios.get(`/person/popular?page=${pageNo}`);
-  console.log(data.results);
 
         if (data.results.length > 0) {
           setPeoples((prev) => [...prev, ...data.results]);
