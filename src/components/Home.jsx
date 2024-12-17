@@ -41,7 +41,7 @@ function Home() {
   return wallPaper && trending.length > 0 ? (
     <>
       <SideNav />
-      <div className="w-[80%] h-full overflow-hidden">
+      <div className="w-[80%] h-full overflow-hidden pt-5">
         <TopNav />
         <Header data={wallPaper} />
         <div className="w-full bg-red-9000 px-4 flex items-center justify-between">
