@@ -27,7 +27,7 @@ function SideNav() {
           Movies
         </Link>
 
-        <Link className="active:bg-[#4c39ca] hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3">
+        <Link to={"/tvshows"} className="active:bg-[#4c39ca] hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3">
           <i className=" mr-2 ri-tv-2-fill"></i>
           Tv-Shows
         </Link>
