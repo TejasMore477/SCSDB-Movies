@@ -15,6 +15,8 @@ function Trendings() {
   const [pageNo, setpageNo] = useState(1);
   const [hasMoreVal, setHasMoreVal] = useState(true);
 
+  document.title = "SCSDB | Trending" + "-" + Catogories.toUpperCase()+"/"+duration.toUpperCase();
+
   const getTrending = async () => {
     try {
       const { data } = await axios.get(`/trending/${Catogories}/${duration}?page=${pageNo}`);
@@ -81,7 +83,7 @@ function Trendings() {
         loader={<h4 className="text-center w-full py-3">Loading...</h4>}
         dataLength={trending.length}
         next={getTrending}
-        hasMore={true}
+        hasMore={hasMoreVal}
       >
         <Cards data={trending} />
       </InfiniteScroll>
