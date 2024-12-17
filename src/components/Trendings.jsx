@@ -5,29 +5,48 @@ import DropDown from "./Partials/DropDown";
 import axios from "../utils/Axios";
 import Cards from "./Partials/Cards";
 import Loading from "./Loading";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function Trendings() {
   const navigate = useNavigate();
   const [trending, setTrending] = useState([]);
   const [Catogories, setCatogories] = useState("all");
   const [duration, setDuration] = useState("day");
+  const [pageNo, setpageNo] = useState(1);
+  const [hasMoreVal, setHasMoreVal] = useState(true);
 
   const getTrending = async () => {
     try {
-      const { data } = await axios.get(`/trending/${Catogories}/${duration}`);
-      setTrending(data.results);
+      const { data } = await axios.get(`/trending/${Catogories}/${duration}?page=${pageNo}`);
+
+      if (data.results.length > 0) {
+        setTrending((prev) => [...prev, ...data.results]);
+        setpageNo(prev => prev + 1);
+      } else {
+        setHasMoreVal(false);
+      }
     } catch (error) {
       console.log("Error : ", error);
     }
   };
 
+  const refreshHandler = () => {
+    if (trending.length === 0) {
+      getTrending();
+    } else {
+      setpageNo(1);
+      setTrending([]);
+      getTrending();
+    }
+  };
+
   useEffect(() => {
-    getTrending();
+    refreshHandler();
   }, [Catogories, duration]);
 
   return trending.length > 0 ? (
-    <div className="h-full w-full overflow-hidden overflow-y-auto px-5">
-      <div className="w-full flex items-center justify-between">
+    <div className="pt-5 w-full overflow-x-hidden">
+      <div className="w-full flex items-center justify-between px-5">
         <div className="flex items-center gap-5 text-2xl">
           <i
             onClick={() => navigate(-1)}
@@ -45,7 +64,7 @@ function Trendings() {
             handleChange={(e) => {
               setCatogories(e.target.value);
             }}
-            icon={<i class="ri-apps-2-add-line"></i>}
+            icon={<i className="ri-apps-2-add-line"></i>}
           />
           <DropDown
             title={"Duration"}
@@ -53,11 +72,19 @@ function Trendings() {
             handleChange={(e) => {
               setDuration(e.target.value);
             }}
-            icon={<i class="ri-timer-2-fill"></i>}
+            icon={<i className="ri-timer-2-fill"></i>}
           />
         </div>
       </div>
-      <Cards data={trending} />
+
+      <InfiniteScroll
+        loader={<h4 className="text-center w-full py-3">Loading...</h4>}
+        dataLength={trending.length}
+        next={getTrending}
+        hasMore={true}
+      >
+        <Cards data={trending} />
+      </InfiniteScroll>
     </div>
   ) : (
     <Loading />
