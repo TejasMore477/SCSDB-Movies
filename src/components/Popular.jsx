@@ -76,7 +76,7 @@ function Popular() {
         next={getPopulars}
         hasMore={hasMoreVal}
       >
-        <Cards data={popular} />
+        <Cards data={popular} title={Catogories}/>
       </InfiniteScroll>
     </div>
   ) : (

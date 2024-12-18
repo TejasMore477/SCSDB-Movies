@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router";
 
-function Cards({ data }) {
-  console.log(data)
+function Cards({ data, title }) {
+
   return (
     <div className="w-full grid grid-cols-6 gap-5 px-10 py-10">
       {data.map((card, index) => (
         <Link
+        to={`/${card.media_type || title}/details/${card.id}`}
           key={index}
           className="w-[13vw] h-[40vh] shrink-0 cursor-pointer relative"
         >

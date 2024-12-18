@@ -85,7 +85,7 @@ function Trendings() {
         next={getTrending}
         hasMore={hasMoreVal}
       >
-        <Cards data={trending} />
+        <Cards data={trending} title={Catogories}/>
       </InfiniteScroll>
     </div>
   ) : (

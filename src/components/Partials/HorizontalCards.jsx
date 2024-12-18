@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router";
 
 function HorizontalCards({ data }) {
   return (
     <div className="w-full flex items-center justify-between flex-nowrap gap-5 p-5 overflow-x-auto mb-10">
       {data.map((item, index) => (
-        <div
+        <Link
+          to={`/${item.media_type}/details/${item.id}`}
           key={index}
           className="w-40 h-[40vh] bg-zinc-900 shrink-0 cursor-pointer"
         >
@@ -27,7 +29,7 @@ function HorizontalCards({ data }) {
               <span className="text-[#6556CD]">...more</span>
             </p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

@@ -77,7 +77,7 @@ function TvShows() {
         next={getTvShows}
         hasMore={hasMoreVal}
       >
-        <Cards data={tvShows} />
+        <Cards data={tvShows} title="tv"/>
       </InfiniteScroll>
     </div>
   ) : (

@@ -67,7 +67,7 @@ function Peoples() {
         next={getPeoples}
         hasMore={hasMoreVal}
       >
-        <Cards data={peoples} />
+        <Cards data={peoples} title="person" />
       </InfiniteScroll>
     </div>
   ) : (

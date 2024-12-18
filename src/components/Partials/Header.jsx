@@ -25,7 +25,8 @@ function Header({ data }) {
     <>
       {data ? (
         <div className="w-full h-[70vh] p-4 relative">
-          <div
+          <Link
+          to={`${data.media_type}/details/${data.id}`}
             style={{
               backgroundImage: `url(https://image.tmdb.org/t/p/original/${data.backdrop_path})`,
               backgroundPosition: "top",
@@ -51,7 +52,7 @@ function Header({ data }) {
               Watch Trailer
             </Link>
 
-          </div>
+          </Link>
         </div>
       ) : (
         <h1 className="w-full text-center mt-[10vh] text-xl font-thin">
