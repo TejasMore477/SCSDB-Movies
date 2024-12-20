@@ -90,12 +90,19 @@ function MovieDetails() {
               src={`https://image.tmdb.org/t/p/original/${
                 Info.details.poster_path || Info.details.backdrop_path
               }`}
-              alt={ Info.details.title || Info.details.original_title || Info.details.original_name || Info.details.name
+              alt={
+                Info.details.title ||
+                Info.details.original_title ||
+                Info.details.original_name ||
+                Info.details.name
               }
             />
             <div className="w-[70vw]">
               <h1 className="text-5xl">
-                {Info.details.title || Info.details.original_title || Info.details.original_name || Info.details.name}
+                {Info.details.title ||
+                  Info.details.original_title ||
+                  Info.details.original_name ||
+                  Info.details.name}
               </h1>
               <h3 className="text-2xl">
                 {Info.details.release_date.split("-")[0]}
@@ -121,7 +128,52 @@ function MovieDetails() {
               </h3>
 
               <p className="text-base">{Info.details.overview}</p>
-              <button className="px-4 py-2 rounded-md bg-[#6556CD] mt-5 hover:bg-[#4b3abc] active:bg-[#4f3bd0]">Watch trailer</button>
+
+              <button className="px-4 py-2 rounded-md bg-[#6556CD] mt-5 hover:bg-[#4b3abc] active:bg-[#4f3bd0]">
+                Watch trailer
+              </button>
+              <div className="w-full h-fit flex items-center justify-start gap-10 mt-5">
+                {" "}
+                {Info.watchProviders && Info.watchProviders.flatrate && (
+                  <div className="flex mt-5 items-center justify-start gap-2">
+                    <h3 className="mr-3">Available on :</h3>
+                    {Info.watchProviders.flatrate.map((item, index) => (
+                      <img
+                        key={index}
+                        className="size-8 object-cover object-center"
+                        src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
+                        alt={item.provider_name}
+                      />
+                    ))}
+                  </div>
+                )}
+                {Info.watchProviders && Info.watchProviders.buy && (
+                  <div className="flex mt-5 items-center justify-start gap-2">
+                    <h3 className="mr-3">Buy on :</h3>
+                    {Info.watchProviders.buy.map((item, index) => (
+                      <img
+                        key={index}
+                        className="size-8 object-cover object-center"
+                        src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
+                        alt={item.provider_name}
+                      />
+                    ))}
+                  </div>
+                )}
+                {Info.watchProviders && Info.watchProviders.rent && (
+                  <div className="flex mt-5 items-center justify-start gap-2">
+                    <h3 className="mr-3">Rent on :</h3>
+                    {Info.watchProviders.rent.map((item, index) => (
+                      <img
+                        key={index}
+                        className="size-8 object-cover object-center"
+                        src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
+                        alt={item.provider_name}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -148,9 +200,10 @@ function MovieDetails() {
         <h1 className="text-3xl capitalize ">
           recommendations & similar movies
         </h1>
-        {(Info.recommendations.length > 0 && (<HorizontalCards data={Info.recommendations} />)) 
-          ||
-        (Info.similar.length > 0 && <HorizontalCards data={Info.similar} />)}
+        {(Info.recommendations.length > 0 && (
+          <HorizontalCards data={Info.recommendations} />
+        )) ||
+          (Info.similar.length > 0 && <HorizontalCards data={Info.similar} />)}
       </div>
     </div>
   ) : (
