@@ -14,3 +14,7 @@
   background-color: #6556CD;
   border-radius: 40px;
 }
+
+::-webkit-scrollbar-track{
+  background-color: transparent;
+}

@@ -48,9 +48,9 @@ function Header({ data }) {
               <p className="text-white text-lg">{data.vote_average}</p>
             </div>
 
-            <Link className="px-5 mt-3 rounded-lg active:bg-[#4c39ca] py-3 bg-[#6556CD]">
+            <button type="button" className="px-5 mt-3 rounded-lg active:bg-[#4c39ca] py-3 bg-[#6556CD]">
               Watch Trailer
-            </Link>
+            </button>
 
           </Link>
         </div>
