@@ -7,6 +7,7 @@ function Header({ data }) {
   const { pathname } = useLocation();
 
   let formattedDate = "";
+  
   if (firstAirDate) {
     const [year, month, day] = firstAirDate.split("-").map(Number);
     //.map(number) is used to retun a new array with number value in side, as we get an array of string after spliting on bases of "-"
@@ -52,7 +53,7 @@ function Header({ data }) {
               <p className="text-white text-lg">{data.vote_average}</p>
             </div>
 
-            <WatchTrailer pathname={`${pathname}${data.media_type}`} />
+            <WatchTrailer pathname={`${pathname}${data.media_type}/details/${data.id}`} />
           </div>
         </div>
       ) : (
