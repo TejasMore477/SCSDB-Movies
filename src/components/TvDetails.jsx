@@ -14,30 +14,28 @@ import HorizontalCards from "./Partials/HorizontalCards";
 import WatchTrailer from "./Partials/WatchTrailer";
 
 function TvDetails() {
-    const { pathname } = useLocation();
-    const dispatch = useDispatch();
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const { Info } = useSelector((state) => state.TvInfo);
-    let FnineImages = [];
-  console.log("info from tv",Info)
-  
-    if (Info && Info.images && Info.images.length > 0) {
-      FnineImages = Info.images.slice(0, 20);
-    }
-    
-  
-    useEffect(() => {
-      if (id) {
-        dispatch(AsyncMountTv(id));
-      }
-  
-      return () => {
-        dispatch(unMountTvInfo());
-      };
-    }, [id, dispatch]);
+  const { pathname } = useLocation();
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { Info } = useSelector((state) => state.TvInfo);
+  let FnineImages = [];
 
-  return Info && Info.details? 
+  if (Info && Info.images && Info.images.length > 0) {
+    FnineImages = Info.images.slice(0, 20);
+  }
+
+  useEffect(() => {
+    if (id) {
+      dispatch(AsyncMountTv(id));
+    }
+
+    return () => {
+      dispatch(unMountTvInfo());
+    };
+  }, [id, dispatch]);
+
+  return Info && Info.details ? (
     <div className="w-full min-h-screen p-5 relative">
       <div className="w-full flex items-center justify-between px-5 mb-3">
         <div className="flex items-center gap-5 text-2xl">
@@ -45,8 +43,12 @@ function TvDetails() {
             onClick={() => navigate(-1)}
             className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
           ></i>
-          <h1 className="text-zinc-400 font-semibold">Movie Details</h1>
-          <Link to={"/"}><i className="text-zinc-300  ri-home-3-line"></i></Link>
+          <h1 className="text-zinc-400  text-xl font-semibold">
+            TV-Show Details
+          </h1>
+          <Link to={"/"}>
+            <i className="text-zinc-300 text-xl ri-home-3-line"></i>
+          </Link>
         </div>
         <div className="w-[80%] flex items-center gap-5">
           <TopNav />
@@ -186,6 +188,39 @@ function TvDetails() {
           </div>
         </div>
       </div>
+
+            {/* seasons */}
+            {Info.details.seasons && (
+        <div className="px-10 ">
+          <h1 className="text-3xl capitalize text-[#6556CD] my-3">Seasons</h1>
+          <div className="w-full flex items-center justify-start gap-3 overflow-auto">
+            {Info.details.seasons.map((ses, index) => (
+              <div
+                key={index}
+                className="w-[13vw] h-[40vh] shrink-0 cursor-pointer relative"
+              >
+                <img
+                  className="w-full h-[35vh] object-cover object-center shadow-zinc-950 shadow-lg"
+                  src={`https://image.tmdb.org/t/p/original/${
+                    ses.poster_path || ses.backdrop_path || ses.profile_path
+                  }`}
+                  alt={
+                    ses.title ||
+                    ses.original_title ||
+                    ses.original_name ||
+                    ses.name
+                  }
+                />
+                <h1 className="w-full my-2 text-base leading-none">
+                  {
+                    ses.name}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* images */}
       <div className="w-full px-10 mt-10">
         <h1 className="text-3xl capitalize mb-5 text-[#6556CD]">Images</h1>
@@ -206,8 +241,8 @@ function TvDetails() {
 
       {/* resommendations */}
 
-      <div className="px-10 text-[#6556CD]">
-        <h1 className="text-3xl capitalize ">
+      <div className="px-10">
+        <h1 className="text-3xl capitalize text-[#6556CD]">
           recommendations & similars
         </h1>
         {(Info.recommendations.length > 0 && (
@@ -219,9 +254,9 @@ function TvDetails() {
       {/* trailer */}
       <Outlet />
     </div>
-   : 
+  ) : (
     <Loading />
-  ;
+  );
 }
 
-export default TvDetails
+export default TvDetails;

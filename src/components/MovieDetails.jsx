@@ -22,7 +22,6 @@ function MovieDetails() {
   const { Info } = useSelector((state) => state.MovieInfo);
   let FnineImages = [];
 
-
   if (Info && Info.images && Info.images.length > 0) {
     FnineImages = Info.images.slice(0, 20);
   }
@@ -45,8 +44,10 @@ function MovieDetails() {
             onClick={() => navigate(-1)}
             className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
           ></i>
-          <h1 className="text-zinc-400 font-semibold">Movie Details</h1>
-          <Link to={"/"}><i className="text-zinc-300  ri-home-3-line"></i></Link>
+          <h1 className="text-zinc-400 text-xl font-semibold">Movie Details</h1>
+          <Link to={"/"}>
+            <i className="text-zinc-300 text-xl  ri-home-3-line"></i>
+          </Link>
         </div>
         <div className="w-[80%] flex items-center gap-5 ">
           <TopNav />
@@ -186,17 +187,18 @@ function MovieDetails() {
           </div>
         </div>
       </div>
+
       {/* images */}
-      <div className="px-10 mt-10">
+      <div className=" px-10 mt-10">
         <h1 className="text-3xl capitalize mb-5 text-[#6556CD]">Images</h1>
         {FnineImages.length > 0 && (
-          <div className=" h-fit w-full flex items-center justify-start flex-shrink-0 flex-wrap overflow-auto gap-1">
+          <div className=" h-fit w-full flex items-center justify-start flex-wrap gap-1">
             {FnineImages.map((image, index) => (
               <img
                 loading="lazy"
                 key={index}
                 src={`https://image.tmdb.org/t/p/original${image.file_path}`}
-                className="h-[20vh] w-[15vw] object-center object-cover mb-2"
+                className="h-[20vh] w-[16vw] object-center object-cover mb-2 shrink-0"
               />
             ))}
           </div>
@@ -206,8 +208,8 @@ function MovieDetails() {
 
       {/* resommendations */}
 
-      <div className="px-10 text-[#6556CD]">
-        <h1 className="text-3xl capitalize ">
+      <div className="px-10 ">
+        <h1 className="text-3xl capitalize text-[#6556CD]">
           recommendations & similar movies
         </h1>
         {(Info.recommendations.length > 0 && (

@@ -20,11 +20,13 @@ function App() {
         <Route path="/trendings" element={<Trendings />} />
         <Route path="/populars" element={<Popular />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/movie/details/:id" element={<MovieDetails />} >
-        <Route path="/movie/details/:id/trailer" element={<Trailer/>}/> 
+        <Route path="/movie/details/:id" element={<MovieDetails />}>
+          <Route path="/movie/details/:id/trailer" element={<Trailer />} />
         </Route>
         <Route path="/tvshows" element={<TvShows />} />
-        <Route path="/tv/details/:id" element={<TvDetails />} />
+        <Route path="/tv/details/:id" element={<TvDetails />}>
+          <Route path="/tv/details/:id/trailer" element={<Trailer />} />
+        </Route>
         <Route path="/peoples" element={<Peoples />} />
         <Route path="/person/details/:id" element={<PeopleDetails />} />
         <Route path="*" element={<NotFound />} />
