@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
+import WatchTrailer from "./WatchTrailer";
 
 function Header({ data }) {
   const firstAirDate = data?.first_air_date || data?.release_date || ""; // optional chaining and fallback value
+  const { pathname } = useLocation();
+  console.log(pathname);
 
   let formattedDate = "";
   if (firstAirDate) {
@@ -25,8 +28,7 @@ function Header({ data }) {
     <>
       {data ? (
         <div className="w-full h-[70vh] p-4 relative">
-          <Link
-          to={`${data.media_type}/details/${data.id}`}
+          <div
             style={{
               backgroundImage: `url(https://image.tmdb.org/t/p/original/${data.backdrop_path})`,
               backgroundPosition: "top",
@@ -35,10 +37,13 @@ function Header({ data }) {
             }}
             className="w-full h-full flex flex-col justify-end items-start p-10"
           >
-            <h1 className="w-[80%] text-5xl font-semibold mb-2">
+            <Link
+              to={`${data.media_type}/details/${data.id}`}
+              className="w-[80%] text-5xl font-semibold mb-2"
+            >
               {data.name || data.original_title || data.title}
-            </h1>
-            
+            </Link>
+
             <p className="my-2 w-[70%] text-sm">{data.overview}</p>
 
             <div className="flex items-center justify-center w-fit gap-2">
@@ -48,11 +53,8 @@ function Header({ data }) {
               <p className="text-white text-lg">{data.vote_average}</p>
             </div>
 
-            <button type="button" className="px-5 mt-3 rounded-lg active:bg-[#4c39ca] py-3 bg-[#6556CD]">
-              Watch Trailer
-            </button>
-
-          </Link>
+            <WatchTrailer pathname={`${pathname}${data.media_type}`} />
+          </div>
         </div>
       ) : (
         <h1 className="w-full text-center mt-[10vh] text-xl font-thin">

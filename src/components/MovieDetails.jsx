@@ -1,19 +1,29 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router";
 import { asyncMountMovie } from "../store/actions/movieAcitons";
 import { unMountMovieInfo } from "../store/actions/movieAcitons";
 import TopNav from "./Partials/TopNav";
 import Loading from "../components/Loading";
 import HorizontalCards from "./Partials/HorizontalCards";
+import WatchTrailer from "./Partials/WatchTrailer";
 
 function MovieDetails() {
+  const { pathname } = useLocation();
+  console.log(pathname, "from watch movies details");
   const dispatch = useDispatch();
   const { id } = useParams();
   const navigate = useNavigate();
   const { Info } = useSelector((state) => state.MovieInfo);
   let FnineImages = [];
-  console.log(Info, "comming from movie details");
+
+  console.log(Info, "from movies details")
 
   if (Info && Info.images && Info.images.length > 0) {
     FnineImages = Info.images.slice(0, 20);
@@ -22,17 +32,15 @@ function MovieDetails() {
   useEffect(() => {
     if (id) {
       dispatch(asyncMountMovie(id));
-      console.log("component is mount, dispatching asyncMountMovies");
     }
 
     return () => {
-      console.log("unmount component, and dispatching unMountMovies");
       dispatch(unMountMovieInfo());
     };
   }, [id, dispatch]);
 
   return Info ? (
-    <div className="w-full min-h-screen p-5">
+    <div className="w-full min-h-screen p-5 relative">
       <div className="w-full flex items-center justify-between px-5 mb-3 bg-red-9000">
         <div className="flex items-center gap-5 text-2xl">
           <i
@@ -40,6 +48,7 @@ function MovieDetails() {
             className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
           ></i>
           <h1 className="text-zinc-400 font-semibold">Movie Details</h1>
+          <Link to={"/"}><i className="text-zinc-300  ri-home-3-line"></i></Link>
         </div>
         <div className="w-[80%] flex items-center gap-5 bg-red-9000">
           <TopNav />
@@ -127,11 +136,12 @@ function MovieDetails() {
                 {Info.details.tagline}
               </h3>
 
-              <p className="text-base">{Info.details.overview}</p>
+              <p className="text-base mb-5">{Info.details.overview}</p>
 
-              <button className="px-4 py-2 rounded-md bg-[#6556CD] mt-5 hover:bg-[#4b3abc] active:bg-[#4f3bd0]">
-                Watch trailer
-              </button>
+              {/* watch trailer */}
+              <WatchTrailer pathname={pathname} />
+
+              {/* watch providers */}
               <div className="w-full h-fit flex items-center justify-start gap-10 mt-5">
                 {" "}
                 {Info.watchProviders && Info.watchProviders.flatrate && (
@@ -178,7 +188,7 @@ function MovieDetails() {
           </div>
         </div>
       </div>
-
+      {/* images */}
       <div className="px-10 mt-10">
         <h1 className="text-3xl capitalize mb-5 text-[#6556CD]">Images</h1>
         {FnineImages.length > 0 && (
@@ -196,6 +206,8 @@ function MovieDetails() {
         <hr className=" border-none h-[1px] bg-zinc-500 my-5 " />
       </div>
 
+      {/* resommendations */}
+
       <div className="px-10 text-[#6556CD]">
         <h1 className="text-3xl capitalize ">
           recommendations & similar movies
@@ -205,6 +217,9 @@ function MovieDetails() {
         )) ||
           (Info.similar.length > 0 && <HorizontalCards data={Info.similar} />)}
       </div>
+
+      {/* trailer */}
+      <Outlet />
     </div>
   ) : (
     <Loading />
