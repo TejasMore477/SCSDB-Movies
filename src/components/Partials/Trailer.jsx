@@ -12,7 +12,6 @@ function Trailer() {
   const catogery = pathname.includes("movie") ? "MovieInfo" : "TvInfo";
   const { videos } = useSelector((state) => state[catogery].Info);
 
-  console.log(pathname.includes("movie"));
   return (
     <div className="w-full h-screen bg-[rgba(0,0,0,0.9)] absolute left-0 top-0 grid place-content-center">
 {videos ? (      <ReactPlayer
@@ -22,7 +21,7 @@ function Trailer() {
       />):(<NotFound/>)}
       <div
         onClick={() => navigate(-1)}
-        className="bg-red-5000 absolute top-[5%] right-[50%] cursor-pointer"
+        className="absolute top-[5%] right-[50%] cursor-pointer"
       >
         <i className="text-4xl font-light ri-close-circle-line"></i>
       </div>

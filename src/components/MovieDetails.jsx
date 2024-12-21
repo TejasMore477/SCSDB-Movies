@@ -16,14 +16,12 @@ import WatchTrailer from "./Partials/WatchTrailer";
 
 function MovieDetails() {
   const { pathname } = useLocation();
-  console.log(pathname, "from watch movies details");
   const dispatch = useDispatch();
   const { id } = useParams();
   const navigate = useNavigate();
   const { Info } = useSelector((state) => state.MovieInfo);
   let FnineImages = [];
 
-  console.log(Info, "from movies details")
 
   if (Info && Info.images && Info.images.length > 0) {
     FnineImages = Info.images.slice(0, 20);
@@ -41,7 +39,7 @@ function MovieDetails() {
 
   return Info ? (
     <div className="w-full min-h-screen p-5 relative">
-      <div className="w-full flex items-center justify-between px-5 mb-3 bg-red-9000">
+      <div className="w-full flex items-center justify-between px-5 mb-3 ">
         <div className="flex items-center gap-5 text-2xl">
           <i
             onClick={() => navigate(-1)}
@@ -50,7 +48,7 @@ function MovieDetails() {
           <h1 className="text-zinc-400 font-semibold">Movie Details</h1>
           <Link to={"/"}><i className="text-zinc-300  ri-home-3-line"></i></Link>
         </div>
-        <div className="w-[80%] flex items-center gap-5 bg-red-9000">
+        <div className="w-[80%] flex items-center gap-5 ">
           <TopNav />
         </div>
       </div>
@@ -93,7 +91,7 @@ function MovieDetails() {
           </div>
 
           {/* part2 card & movie details */}
-          <div className="w-full bg-red-9000 mt-10 flex items-center justify-start gap-20">
+          <div className="w-full  mt-10 flex items-center justify-start gap-20">
             <img
               className="w-[20vw] h-[50vh] object-cover object-center shadow-zinc-950 shadow-lg"
               src={`https://image.tmdb.org/t/p/original/${
@@ -192,7 +190,7 @@ function MovieDetails() {
       <div className="px-10 mt-10">
         <h1 className="text-3xl capitalize mb-5 text-[#6556CD]">Images</h1>
         {FnineImages.length > 0 && (
-          <div className="bg-red-9000 h-fit w-full flex items-center justify-start flex-shrink-0 flex-wrap overflow-auto gap-1">
+          <div className=" h-fit w-full flex items-center justify-start flex-shrink-0 flex-wrap overflow-auto gap-1">
             {FnineImages.map((image, index) => (
               <img
                 loading="lazy"

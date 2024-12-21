@@ -5,7 +5,6 @@ import WatchTrailer from "./WatchTrailer";
 function Header({ data }) {
   const firstAirDate = data?.first_air_date || data?.release_date || ""; // optional chaining and fallback value
   const { pathname } = useLocation();
-  console.log(pathname);
 
   let formattedDate = "";
   if (firstAirDate) {
