@@ -44,7 +44,7 @@ function Home() {
       <div className="w-[80%] h-full overflow-hidden pt-5">
         <TopNav />
         <Header data={wallPaper} />
-        <div className="w-full bg-red-9000 px-4 flex items-center justify-between">
+        <div className="w-full px-4 flex items-center justify-between">
       <h1 className="text-zinc-400 font-semibold text-2xl">Trending</h1>
         <DropDown handleChange={(e)=>setTrending(e.target.value)} title={"Filter"} options={["all", "tv", "movie"]} icon={<i className="ri-filter-fill"></i>}/>
     </div>

@@ -11,7 +11,7 @@ function HorizontalCards({ data }) {
           className="w-[10rem] h-[40vh] bg-zinc-900 shrink-0 cursor-pointer flex flex-col items-center"
         >
           <img
-            className="h-[25vh] w-[9rem] bg-violet-6000 object-cover object-center"
+            className="h-[25vh] w-[9rem] object-cover object-center"
             src={`https://image.tmdb.org/t/p/original/${
               item.poster_path || item.backdrop_path
             }`}
