@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import noImage from "/NoImage.jpg";
 
 function Cards({ data, title }) {
 
@@ -13,7 +14,7 @@ function Cards({ data, title }) {
         >
           <img
             className="w-full h-[35vh] object-cover object-center shadow-zinc-950 shadow-lg"
-            src={`https://image.tmdb.org/t/p/original/${card.poster_path || card.backdrop_path || card.profile_path}`}
+          src={card.poster_path || card.backdrop_path || card.profile_path ? `https://image.tmdb.org/t/p/original/${card.poster_path || card.backdrop_path || card.profile_path}`:noImage}
             alt={ card.title || card.original_title || card.original_name || card.name }
           />
           <h1 className="w-full my-2 text-base leading-none">
