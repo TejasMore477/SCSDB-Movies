@@ -15,6 +15,7 @@ function Trailer() {
     <div className="w-full h-screen bg-[rgba(0,0,0,0.9)] absolute left-0 top-0 grid place-content-center">
       {videos ? (
         <ReactPlayer
+          controls
           height={700}
           width={1300}
           url={`https://www.youtube.com/watch?v=${videos.key}`}
