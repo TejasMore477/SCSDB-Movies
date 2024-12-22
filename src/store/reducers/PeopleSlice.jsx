@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    people:[],
+    Info:[],
 }
 
 export const PeopleSlice = createSlice({
@@ -9,10 +9,10 @@ export const PeopleSlice = createSlice({
     initialState,
     reducers:{
         mountPeopleInfo: (state,action)=>{
-            state.people = action.payload;
+            state.Info = action.payload;
         },
         unMountPeopleInfo:(state, action)=>{
-            state.people = [];
+            state.Info = [];
         },
     }
 })
