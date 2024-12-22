@@ -7,6 +7,8 @@ import Cards from "./Partials/Cards";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+
+
 function Popular() {
   const navigate = useNavigate();
   const [popular, setPopular] = useState([]);
@@ -48,6 +50,7 @@ function Popular() {
   return popular.length > 0 ? (
     <div className="pt-5 w-full overflow-x-hidden">
       <div className="w-full flex items-center justify-between px-5">
+        
         <div className="flex items-center gap-5 text-2xl">
           <i
             onClick={() => navigate(-1)}
@@ -55,10 +58,13 @@ function Popular() {
           ></i>
           <h1 className="text-zinc-400 font-semibold">popular</h1>
         </div>
+
         <div className="w-full flex items-center gap-5">
+
           <div className="w-full">
             <TopNav />
           </div>
+
           <DropDown
             title={"Catogories"}
             options={["tv", "movie"]}
@@ -78,6 +84,7 @@ function Popular() {
       >
         <Cards data={popular} title={Catogories}/>
       </InfiniteScroll>
+
     </div>
   ) : (
     <Loading />

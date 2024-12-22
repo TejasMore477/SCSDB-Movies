@@ -15,10 +15,11 @@ import WatchTrailer from "./Partials/WatchTrailer";
 
 function TvDetails() {
   const { pathname } = useLocation();
-  const dispatch = useDispatch();
   const { id } = useParams();
-  const navigate = useNavigate();
   const { Info } = useSelector((state) => state.TvInfo);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   let FnineImages = [];
 
   if (Info && Info.images && Info.images.length > 0) {
@@ -38,11 +39,13 @@ function TvDetails() {
   return Info && Info.details ? (
     <div className="w-full min-h-screen p-5 relative">
       <div className="w-full flex items-center justify-between px-5 mb-3">
+        
         <div className="flex items-center gap-5 text-2xl">
           <i
             onClick={() => navigate(-1)}
             className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
           ></i>
+
           <h1 className="text-zinc-400  text-xl font-semibold">
             TV-Show Details
           </h1>
@@ -50,9 +53,11 @@ function TvDetails() {
             <i className="text-zinc-300 text-xl ri-home-3-line"></i>
           </Link>
         </div>
+
         <div className="w-[80%] flex items-center gap-5">
           <TopNav />
         </div>
+
       </div>
 
       <div
@@ -189,8 +194,8 @@ function TvDetails() {
         </div>
       </div>
 
-            {/* seasons */}
-            {Info.details.seasons && (
+      {/* seasons */}
+      {Info.details.seasons && (
         <div className="px-10 ">
           <h1 className="text-3xl capitalize text-[#6556CD] my-3">Seasons</h1>
           <div className="w-full flex items-center justify-start gap-3 overflow-auto">
@@ -212,8 +217,7 @@ function TvDetails() {
                   }
                 />
                 <h1 className="w-full my-2 text-base leading-none">
-                  {
-                    ses.name}
+                  {ses.name}
                 </h1>
               </div>
             ))}
@@ -240,15 +244,12 @@ function TvDetails() {
       </div>
 
       {/* resommendations */}
-
       <div className="px-10">
-        <h1 className="text-3xl capitalize text-[#6556CD]">
-          recommendations & similars
-        </h1>
-        {(Info.recommendations.length > 0 && (
-          <HorizontalCards data={Info.recommendations} />
-        )) ||
-          (Info.similar.length > 0 && <HorizontalCards data={Info.similar} />)}
+        <h1 className="text-3xl capitalize text-[#6556CD]">recommendations & similars</h1>
+        {
+        (Info.recommendations.length > 0 && (<HorizontalCards data={Info.recommendations} />)) ||
+          (Info.similar.length > 0 && <HorizontalCards data={Info.similar} />)
+        }
       </div>
 
       {/* trailer */}

@@ -7,7 +7,10 @@ import Cards from "./Partials/Cards";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+
+
 function Movies() {
+
     const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
     const [Catogories, setCatogories] = useState("now_playing");
@@ -47,7 +50,9 @@ function Movies() {
 
   return movies.length > 0 ? (
     <div className="pt-5 w-full overflow-x-hidden">
+
       <div className="w-full flex items-center justify-between px-5">
+
         <div className="flex items-center gap-5 text-2xl">
           <i
             onClick={() => navigate(-1)}
@@ -55,10 +60,10 @@ function Movies() {
           ></i>
           <h1 className="text-zinc-400 font-semibold">Movies</h1>
         </div>
+
         <div className="w-full flex items-center gap-5">
-          <div className="w-full">
-            <TopNav />
-          </div>
+          <TopNav />
+
           <DropDown
             title={"Catogories"}
             options={["popular","top_rated","upcoming", "now_playing"]}
@@ -68,6 +73,7 @@ function Movies() {
             icon={<i className="ri-apps-2-add-line"></i>}
           />
         </div>
+      
       </div>
 
       <InfiniteScroll
@@ -78,6 +84,7 @@ function Movies() {
       >
         <Cards data={movies} title="movie" />
       </InfiniteScroll>
+      
     </div>
   ) : (
     <Loading />

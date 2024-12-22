@@ -47,6 +47,7 @@ function Peoples() {
   return peoples.length > 0 ? (
     <div className="pt-5 w-full overflow-x-hidden">
       <div className="w-full flex items-center justify-between px-5">
+
         <div className="flex w-fit items-center gap-5 text-2xl">
           <i
             onClick={() => navigate(-1)}
@@ -54,11 +55,11 @@ function Peoples() {
           ></i>
           <h1 className="text-zinc-400 font-semibold">Peoples</h1>
         </div>
+
         <div className="w-[90%] flex items-center gap-5">
-          <div className="w-full">
             <TopNav />
-          </div>
         </div>
+        
       </div>
 
       <InfiniteScroll

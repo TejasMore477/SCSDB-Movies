@@ -4,6 +4,7 @@ function NotFound() {
   const navigate = useNavigate();
   return (
     <div className='h-screen grid place-content-center w-full'>
+
       <h1 className='text-center  text-3xl text-[#6556CD]'>Sorry, <span className='text-white'>Page Not Found !!</span></h1>
       <div
         onClick={() => navigate(-1)}
@@ -11,6 +12,7 @@ function NotFound() {
       >
         <i className="text-4xl font-light ri-close-circle-line"></i>
       </div>
+      
     </div>
   )
 }

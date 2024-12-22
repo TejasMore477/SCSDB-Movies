@@ -14,12 +14,16 @@ import Loading from "../components/Loading";
 import HorizontalCards from "./Partials/HorizontalCards";
 import WatchTrailer from "./Partials/WatchTrailer";
 
+
+
 function MovieDetails() {
+
   const { pathname } = useLocation();
-  const dispatch = useDispatch();
-  const { id } = useParams();
-  const navigate = useNavigate();
+  const { id } = useParams();  
   const { Info } = useSelector((state) => state.MovieInfo);
+  const navigate = useNavigate();  
+  const dispatch = useDispatch();
+
   let FnineImages = [];
 
   if (Info && Info.images && Info.images.length > 0) {
@@ -39,19 +43,25 @@ function MovieDetails() {
   return Info ? (
     <div className="w-full min-h-screen p-5 relative">
       <div className="w-full flex items-center justify-between px-5 mb-3 ">
+
         <div className="flex items-center gap-5 text-2xl">
           <i
             onClick={() => navigate(-1)}
             className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
           ></i>
+
           <h1 className="text-zinc-400 text-xl font-semibold">Movie Details</h1>
+
           <Link to={"/"}>
             <i className="text-zinc-300 text-xl  ri-home-3-line"></i>
           </Link>
+
         </div>
+
         <div className="w-[80%] flex items-center gap-5 ">
           <TopNav />
         </div>
+
       </div>
 
       <div
@@ -66,6 +76,7 @@ function MovieDetails() {
         className="w-full h-[80vh]  rounded-md"
       >
         <div className="h-full w-full bg-zinc-800 bg-opacity-50 backdrop-blur-[0px] px-20 py-10">
+
           {/* Part-one links */}
           <div className="flex items-center justify-start gap-5">
             <a
@@ -75,6 +86,7 @@ function MovieDetails() {
             >
               IMDB
             </a>
+
             <a
               target="_blank"
               className="text-zinc-100"
@@ -82,6 +94,7 @@ function MovieDetails() {
             >
               <i className=" text-lg ri-clapperboard-line"></i>
             </a>
+
             <a
               target="_blank"
               className="text-zinc-100"
@@ -89,6 +102,7 @@ function MovieDetails() {
             >
               <i className=" text-lg ri-earth-fill"></i>
             </a>
+
           </div>
 
           {/* part2 card & movie details */}
@@ -98,19 +112,11 @@ function MovieDetails() {
               src={`https://image.tmdb.org/t/p/original/${
                 Info.details.poster_path || Info.details.backdrop_path
               }`}
-              alt={
-                Info.details.title ||
-                Info.details.original_title ||
-                Info.details.original_name ||
-                Info.details.name
-              }
-            />
+              alt={ Info.details.title || Info.details.original_title || Info.details.original_name || Info.details.name}/>
+            
             <div className="w-[70vw]">
               <h1 className="text-5xl">
-                {Info.details.title ||
-                  Info.details.original_title ||
-                  Info.details.original_name ||
-                  Info.details.name}
+                {Info.details.title || Info.details.original_title || Info.details.original_name || Info.details.name}
               </h1>
               <h3 className="text-2xl">
                 {Info.details.release_date.split("-")[0]}
@@ -142,10 +148,11 @@ function MovieDetails() {
 
               {/* watch providers */}
               <div className="w-full h-fit flex items-center justify-start gap-10 mt-5">
-                {" "}
+
                 {Info.watchProviders && Info.watchProviders.flatrate && (
                   <div className="flex mt-5 items-center justify-start gap-2">
                     <h3 className="mr-3">Available on :</h3>
+
                     {Info.watchProviders.flatrate.map((item, index) => (
                       <img
                         key={index}
@@ -156,6 +163,7 @@ function MovieDetails() {
                     ))}
                   </div>
                 )}
+
                 {Info.watchProviders && Info.watchProviders.buy && (
                   <div className="flex mt-5 items-center justify-start gap-2">
                     <h3 className="mr-3">Buy on :</h3>
@@ -169,6 +177,7 @@ function MovieDetails() {
                     ))}
                   </div>
                 )}
+
                 {Info.watchProviders && Info.watchProviders.rent && (
                   <div className="flex mt-5 items-center justify-start gap-2">
                     <h3 className="mr-3">Rent on :</h3>
@@ -180,6 +189,7 @@ function MovieDetails() {
                         alt={item.provider_name}
                       />
                     ))}
+
                   </div>
                 )}
               </div>
@@ -207,7 +217,6 @@ function MovieDetails() {
       </div>
 
       {/* resommendations */}
-
       <div className="px-10 ">
         <h1 className="text-3xl capitalize text-[#6556CD]">
           recommendations & similar movies

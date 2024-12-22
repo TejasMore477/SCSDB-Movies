@@ -7,6 +7,7 @@ import Cards from "./Partials/Cards";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+
 function TvShows() {
     const navigate = useNavigate();
     const [tvShows, setTvShows] = useState([]);
@@ -49,6 +50,7 @@ function TvShows() {
   return tvShows.length > 0 ? (
     <div className="pt-5 w-full overflow-x-hidden">
       <div className="w-full flex items-center justify-between px-5">
+        
         <div className="flex w-fit items-center gap-5 text-2xl">
           <i
             onClick={() => navigate(-1)}
@@ -56,10 +58,13 @@ function TvShows() {
           ></i>
           <h1 className="text-zinc-400 font-semibold">Tv Shows</h1>
         </div>
+
         <div className="w-[90%] flex items-center gap-5">
+
           <div className="w-full">
             <TopNav />
           </div>
+
           <DropDown
             title={"Catogories"}
             options={["popular","top_rated","on_the_air", "airing_today"]}
@@ -68,7 +73,9 @@ function TvShows() {
             }}
             icon={<i className="ri-apps-2-add-line"></i>}
           />
+
         </div>
+
       </div>
 
       <InfiniteScroll
@@ -79,6 +86,7 @@ function TvShows() {
       >
         <Cards data={tvShows} title="tv"/>
       </InfiniteScroll>
+
     </div>
   ) : (
     <Loading />

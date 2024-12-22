@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import noimage from "/NoImage.jpg"
 
+
 function TopNav() {
+
   const [ query, setQuery ] = useState("");
   const [ searches, setSerches ] = useState([]);
   const [ adults, setAdults ] = useState(true);
