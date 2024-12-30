@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customBullet: '#503ecb', // custom bullet color here
+      },
+    },
   },
   plugins: [],
 }

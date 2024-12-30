@@ -38,12 +38,12 @@ function SideNav() {
         </Link>
       </nav>
 
-      <hr className=" border-none h-[1px] bg-zinc-500 my-2" />
+      <hr className="border-none h-[1px] bg-zinc-500 my-2" />
 
       <nav className="text-lg text-zinc-400 flex flex-col gap-3">
         <h1 className="font-medium mb-2 text-white">More Info</h1>
 
-        <Link className="active:bg-[#4c39ca] hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3">
+        <Link to={'/about'} className="active:bg-[#4c39ca] hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3">
           <i className="mr-2 ri-information-fill"></i>
           About SCSDB
         </Link>
