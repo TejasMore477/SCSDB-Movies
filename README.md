@@ -36,7 +36,6 @@ Here’s a sneak peek into what the project looks like:
 ![Screenshot (1087)](https://github.com/user-attachments/assets/9480fd02-6627-408d-9f4b-04bdcc863091)
 ![Screenshot (1088)](https://github.com/user-attachments/assets/a729d95c-f190-4e84-8366-64f97fac48a4)
 ![Screenshot (1089)](https://github.com/user-attachments/assets/50e3b743-2734-4d3c-bc0e-7a57245fd972)
-![Screenshot (1090)](https://github.com/user-attachments/assets/0e9625d1-96a3-404c-a6d6-75ab1549fccd)
 ![Screenshot (1091)](https://github.com/user-attachments/assets/058498de-d129-43f7-9d15-fac71cbb62b4)
 ![Screenshot (1092)](https://github.com/user-attachments/assets/263d994b-729b-427b-976e-44fd0b269a02)
 ![Screenshot (1094)](https://github.com/user-attachments/assets/4960ba0d-ec55-425f-8fc2-f0811a2e04bc)
