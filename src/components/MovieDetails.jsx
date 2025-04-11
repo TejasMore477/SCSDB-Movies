@@ -7,8 +7,8 @@ import {
   useNavigate,
   useParams,
 } from "react-router";
-import { asyncMountMovie } from "../store/actions/movieAcitons";
-import { unMountMovieInfo } from "../store/actions/movieAcitons";
+import { asyncMountMovie } from "../store/actions/MovieAcitons";
+import { unMountMovieInfo } from "../store/reducers/MovieSlice";
 import TopNav from "./Partials/TopNav";
 import Loading from "../components/Loading";
 import HorizontalCards from "./Partials/HorizontalCards";
