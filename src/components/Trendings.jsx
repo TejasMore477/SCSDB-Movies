@@ -56,7 +56,7 @@ function Trendings() {
   return trending.length > 0 ? (
     <div className="pt-5 w-full overflow-x-hidden">
 
-      <div className="flex items-center gap-5 text-2xl px-8 xl:bg-red-9000 lg:bg-fuchsia-9000 md:bg-green-9000 sm:bg-orange-9000">
+      <div className="flex items-center gap-5 text-2xl px-8 xl:bg-red-900 lg:bg-fuchsia-900 md:bg-green-900 sm:bg-orange-900">
         <i
           onClick={() => navigate(-1)}
           className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
