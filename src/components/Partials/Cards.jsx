@@ -39,7 +39,7 @@ function Cards({ data, title }) {
           </h1>
           
           {!isNaN(card.vote_average) && (
-            <div className="absolute top-[55%] right-[-5%] sm:right-[-8%] bg-[#6556CD] size-fit px-2 py-2 sm:px-3 sm:py-3 rounded-full grid place-content-center">
+            <div className="absolute top-[55%] right-[-5%] sm:right-[-8%] bg-[#6556CD] size-fit px-2 py-3 sm:px-3 sm:py-4 rounded-full grid place-content-center">
               <h3 className="text-xs font-bold">
                 {card.vote_average.toFixed(1)}
                 <sup>
