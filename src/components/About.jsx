@@ -6,7 +6,7 @@ function About() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full h-fit pt-5 px-10">
+    <div className="w-full h-fit pt-5 px-8">
       <div className="flex items-center gap-5 text-2xl">
         <i
           onClick={() => navigate(-1)}
@@ -19,7 +19,7 @@ function About() {
       </div>
 
       {/* content */}
-      <div className="p-10">
+      <div className="py-10">
         <h2 className="text-2xl font-semibold text-zinc-200">What is this ?</h2>
         <p className="text-lg font-light mt-2">
           SCSBD Movie Web App is your ultimate destination for discovering and
