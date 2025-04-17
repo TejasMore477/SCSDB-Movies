@@ -46,20 +46,21 @@ function Peoples() {
 
   return peoples.length > 0 ? (
     <div className="pt-5 w-full overflow-x-hidden">
-      <div className="w-full flex items-center justify-between px-5">
 
-        <div className="flex w-fit items-center gap-5 text-2xl">
-          <i
-            onClick={() => navigate(-1)}
-            className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
-          ></i>
-          <h1 className="text-zinc-400 font-semibold">Peoples</h1>
-        </div>
+      <div className="flex items-center gap-5 text-2xl px-5">
+        <i
+          onClick={() => navigate(-1)}
+          className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
+        ></i>
+        <h1 className="text-zinc-400 font-semibold">Peoples</h1>
+      </div>
 
-        <div className="w-[90%] flex items-center gap-5">
-            <TopNav />
+      <div className="w-full flex items-center justify-end px-8 mt-3">
+        <div className="w-[100%] lg:flex items-center gap-5">
+          <div className="xl:w-[50%] lg:w-[80%] w-full flex items-end md:items-start">
+            <TopNav justify={"justify-start"} />
+          </div>
         </div>
-        
       </div>
 
       <InfiniteScroll
