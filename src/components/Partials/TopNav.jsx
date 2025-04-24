@@ -26,14 +26,14 @@ function TopNav({justify="justify-center"}) {
   }, [query]);
 
   return (
-    <div className={`w-full flex items-center ${justify} relative bg-yellow-9000`}>
-      <i className="text-zinc-400 text-3xl ri-search-eye-line pr-3"></i>
+    <div className={`w-full flex items-center ${justify} relative`}>
+      <i className="text-zinc-400 text-3xl ri-search-eye-line pr-3 hidden sm:block"></i>
 
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className={`w-full bg-zinc-700 bg-red-6000 rounded-full text-zinc-200 py-2 px-5 border-none bg-transparent outline-none text-lg`}
+        className={`w-full bg-zinc-700 rounded-full text-zinc-200 py-2 px-5 border-none bg-transparent outline-none sm:text-lg text-base`}
         placeholder="Search Anything"
       />
 
@@ -52,17 +52,20 @@ function TopNav({justify="justify-center"}) {
               key={index}
               className="bg-transparent hover:bg-[#6556CD]/20 hover:backdrop-blur-[5px]  text-zinc-300 hover:text-zinc-50 rounded-lg flex items-center justify-between w-[100%] py-2 px-5"
             >
+
               <span>
                 {search.title ||
                   search.name ||
                   search.original_name ||
                   search.original_title}
               </span>
+
               <img
                 className="size-[10vh] object-cover object-center"
                 src={search.poster_path || search.profile_path ? `https://image.tmdb.org/t/p/original/${search.poster_path || search.profile_path}`:`${noimage}`}
                 alt="!"
               />
+              
             </Link>
           );
         })}

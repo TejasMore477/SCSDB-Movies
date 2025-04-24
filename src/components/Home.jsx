@@ -40,19 +40,36 @@ function Home() {
 
   return wallPaper && trending.length > 0 ? (
     <>
-      <SideNav />
-      <div className="w-[80%] h-full overflow-hidden pt-5">
-        <TopNav />
-        <Header data={wallPaper} />
+      <div className="w-[20%] xl:block hidden">
+        <SideNav />
+      </div>
+
+      <div className="xl:w-[80%] w-full  h-full overflow-hidden pt-5">
         
-        <div className="w-full px-4 flex items-center justify-between">
+        <div className="xl:px-[20%] px-5 md:flex items-center md:justify-start justify-between bg-fuchsia-5000">
+          <h1 className="text-xl font-semibold w-full pb-4 md:pd-0 md:w-[30%] xl:hidden ">
+            <i className="text-[#6556CD] ri-tv-fill"></i>
+            <span className="ml-3">SCSDB-Movies</span>
+          </h1>
+
+          <div className="xl:w-full md:w-[60%] w-full">
+          <TopNav />
+          </div>
+        </div>
+        
+        <Header data={wallPaper} />
+
+        <div className="w-full px-5 flex items-center justify-between">
+
           <h1 className="text-zinc-400 font-semibold text-2xl">Trending</h1>
           <DropDown
             handleChange={(e) => setTrendValue(e.target.value)}
             title={"Filter"}
             options={["all", "tv", "movie"]}
             icon={<i className="ri-filter-fill"></i>}
+            width="w-48"
           />
+          
         </div>
 
         <HorizontalCards data={trending} />

@@ -1,8 +1,8 @@
 import React from "react";
 
-function DropDown({ handleChange, title, options, icon }) {
+function DropDown({ handleChange, title, options, icon, width="w-full" }) {
   return (
-      <div className="hover:bg-zinc-700 flex items-center justify-center gap-2 px-4 py-1 rounded-sm text-zinc-300 w-full">
+      <div className={`hover:bg-zinc-700 flex items-center justify-center gap-2 px-4 py-1 rounded-sm text-zinc-300 ${width}`} >
         {icon}
         <select
           onChange={handleChange}
