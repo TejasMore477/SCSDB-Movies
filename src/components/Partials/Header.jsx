@@ -37,20 +37,20 @@ function Header({ data }) {
             }}
             className="w-full h-full flex flex-col justify-end items-start sm:p-10  rounded-md  overflow-hidden"
           >
-            <div className="sm:hidden h-[45%] bg-black bg-opacity-30 backdrop-blur-[2px] sm:p-10 p-4 rounded-t-md">
+            <div className="sm:hidden bg-black bg-opacity-30 backdrop-blur-[2px] px-4 py-8 rounded-t-md">
               <Link
                 to={`${data.media_type}/details/${data.id}`}
-                className="sm:w-[80%] inline-block w-full sm:text-5xl text-3xl leading-none tracking-tight sm:font-semibold font-medium mb-2"
+                className="inline-block w-full text-3xl leading-none tracking-tight font-medium mb-2"
               >
                 {data.name || data.original_title || data.title}
               </Link>
 
-              <Link className="my-2 sm:w-[70%] w-full text-sm inline-block">
+              <Link className="my-2 w-full text-sm inline-block">
                 {data.overview.slice(0, 100)}
                 <span className="text-[#6556CD]">...more</span>
               </Link>
 
-              <div className="flex items-center justify-center w-fit gap-2 sm:text-lg font-medium pb-4">
+              <div className="flex items-center justify-center w-fit gap-2 font-medium pb-4">
                 <p className="capitalize mr-5">{data.media_type}</p>
                 <h2 className="mr-10">{formattedDate || "No Info"}</h2>
                 <i className=" text-yellow-300 text-sm ri-star-fill"></i>
@@ -64,7 +64,7 @@ function Header({ data }) {
 
             <Link
               to={`${data.media_type}/details/${data.id}`}
-              className="sm:w-[80%] w-full sm:text-5xl text-3xl leading-none tracking-tight sm:font-semibold font-medium mb-2 sm:block hidden"
+              className="w-[80%] text-5xl leading-none tracking-tight font-semibold mb-2 sm:block hidden"
             >
               {data.name || data.original_title || data.title}
             </Link>
@@ -73,7 +73,7 @@ function Header({ data }) {
               {data.overview}
             </p>
 
-            <div className="sm:flex items-center justify-center w-fit gap-2 sm:text-lg font-medium pb-4 hidden">
+            <div className="sm:flex items-center justify-center w-fit gap-2 text-lg font-medium pb-4 hidden">
               <p className="capitalize mr-5">{data.media_type}</p>
               <h2 className="mr-10">{formattedDate || "No Info"}</h2>
               <i className=" text-yellow-300 text-sm ri-star-fill"></i>
@@ -85,7 +85,7 @@ function Header({ data }) {
                 pathname={`${pathname}${data.media_type}/details/${data.id}`}
               />
             </div>
-            
+
           </div>
         </div>
       ) : (
