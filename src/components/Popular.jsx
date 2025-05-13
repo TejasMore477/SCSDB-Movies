@@ -52,7 +52,7 @@ function Popular() {
           onClick={() => navigate(-1)}
           className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
         ></i>
-        <h1 className="text-zinc-400 font-semibold">Popular</h1>
+        <h1 className="text-zinc-400 font-semibold sm:text-xl text-lg">Popular</h1>
       </div>
 
       <div className="w-full flex items-center justify-end px-5 lg:px-8 mt-3">
