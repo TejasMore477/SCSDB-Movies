@@ -54,7 +54,7 @@ function Movies() {
           onClick={() => navigate(-1)}
           className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
         ></i>
-        <h1 className="text-zinc-400 font-semibold">Movies</h1>
+        <h1 className="text-zinc-400 font-semibold sm:text-xl text-lg">Movies</h1>
       </div>
 
       <div className="w-full flex items-center justify-end px-8 mt-3">
