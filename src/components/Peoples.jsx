@@ -47,12 +47,12 @@ function Peoples() {
   return peoples.length > 0 ? (
     <div className="pt-5 w-full overflow-x-hidden">
 
-      <div className="flex items-center gap-5 text-2xl px-5">
+      <div className="flex items-center gap-5 px-5">
         <i
           onClick={() => navigate(-1)}
           className="text-[#6556CD] ri-arrow-left-line active:text-[#503ecb] cursor-pointer"
         ></i>
-        <h1 className="text-zinc-400 font-semibold">Peoples</h1>
+        <h1 className="text-zinc-400 font-semibold sm:text-xl text-lg">Peoples</h1>
       </div>
 
       <div className="w-full flex items-center justify-end px-8 mt-3">
