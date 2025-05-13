@@ -14,7 +14,7 @@ function About() {
         ></i>
         <h1 className="text-xl font-semibold text-zinc-400">
           <i className="text-[#6556CD] ri-tv-fill"></i>
-          <span className="ml-3">About SCSDB-Movies</span>
+          <span className="ml-3 sm:text-xl text-lg">About SCSDB-Movies</span>
         </h1>
       </div>
 
